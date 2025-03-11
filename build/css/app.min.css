@@ -364,9 +364,9 @@ svg {
   margin-top: var(--bs-gutter-y);
 }
 
-.col-2 {
+.col-1 {
   flex: 0 0 auto;
-  width: 16.66666667%;
+  width: 8.33333333%;
 }
 
 .col-4 {
@@ -900,11 +900,6 @@ svg {
     font-size: 1.5rem !important;
   }
 }
-.ul-tech .btn-no-hover {
-  pointer-events: none;
-  cursor: alias;
-  border-radius: 1.5rem;
-}
 
 .btn-action-go {
   border-radius: 3rem;
@@ -944,10 +939,45 @@ svg {
   border-bottom: 1px solid #000;
 }
 
+.section-presentacion {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 1s ease-out;
+}
+
+.btn-project {
+  border-radius: 1.5rem;
+  cursor: none;
+}
+
 .nav-fixed {
   z-index: 100;
   position: fixed;
   background-color: #fff;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor; /* Usa el color del texto */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 .img-proyecto {
@@ -958,6 +988,20 @@ svg {
 
 .btn-portfolio {
   cursor: pointer;
+}
+
+.section-presentacion {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 1s ease-out;
+}
+
+.img-proyecto {
+  transition: 0.5s;
+}
+
+.img-proyecto:hover {
+  scale: 1.03;
 }
 
 .contenedor-tecnologias {
@@ -1017,4 +1061,23 @@ svg {
 
 .card-title {
   font-family: "Raleway", serif;
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tecnologia{
+  transition: .5s;
+}
+
+.tecnologia:hover{
+  transform: scale(1.08);
 }
