@@ -28,3 +28,49 @@ document.addEventListener('DOMContentLoaded', () => {
         target.scrollIntoView({ behavior: 'smooth' }); 
     })
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".section-presentacion");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                section.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".section-portfolio");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                section.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("section-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        section.classList.add("section-hidden");
+        observer.observe(section);
+    });
+});
